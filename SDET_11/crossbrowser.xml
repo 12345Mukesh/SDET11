@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="tests"    thread-count="3">
+  <test name="Test_runner1">
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="com.Vtiger.pomscripts.VtigerTestCases">
+      <methods>
+         <include name="TC001_CreateContact"/>
+      </methods>
+      </class>
+    </classes>
+  </test> <!-- Test -->
+  
+  <test name="Test_runner2">
+    <parameter name="browser" value="Firefox"/>
+    <classes>
+      <class name="com.Vtiger.pomscripts.VtigerTestCases">
+      <methods>
+         <include name="Tc001_CreateOrgDDTest"/>
+      </methods>
+      </class>
+    </classes>
+  </test> <!-- Test -->
+  
+  <test name="Test_runner3">
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="com.Vtiger.pomscripts.VtigerTestCases">
+      <methods>
+         <include name="CreateContactTestWindowHandle"/>
+      </methods>
+      </class>
+    </classes>
+  </test> <!-- Test -->  
+</suite> <!-- Suite -->
