@@ -43,12 +43,12 @@ public class Baseclass
     	(browsername.equals("chrome"))
     	{
     		System.setProperty(IAutoConst.CHROME_KEY, IAutoConst.CHROME_VALUE);
-    		driver = new ChromeDriver();
+    		//driver = new ChromeDriver();
     	}
     	else if(browsername.equalsIgnoreCase("Firefox"))
     	{
     		System.setProperty(IAutoConst.GECKO_KEY, IAutoConst.GECKO_VALUE);
-    		driver = new FirefoxDriver();
+    		//driver = new FirefoxDriver();
     	}
     	else if
     	(browsername.equalsIgnoreCase("safari"))
