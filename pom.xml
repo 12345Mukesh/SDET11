@@ -29,12 +29,13 @@
 				<configuration>
 					<suiteXmlFiles>
 						<!-- TestNG suite XML files -->
-						<suiteXmlFile>Sampletestng.xml</suiteXmlFile>
+						<suiteXmlFile>vtigersmoke.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
+
 
 
 	<profiles>
@@ -75,8 +76,8 @@
 				</plugins>
 			</build>
 		</profile>
-	
-	<profile>
+
+		<profile>
 			<id>Distributedparallel</id>
 			<build>
 				<plugins>
@@ -94,8 +95,8 @@
 				</plugins>
 			</build>
 		</profile>
-	
-	<profile>
+
+		<profile>
 			<id>crossbrowser</id>
 			<build>
 				<plugins>
@@ -113,8 +114,8 @@
 				</plugins>
 			</build>
 		</profile>
-	
-	<profile>
+
+		<profile>
 			<id>RegressionTestcase</id>
 			<build>
 				<plugins>
@@ -132,9 +133,9 @@
 				</plugins>
 			</build>
 		</profile>
-	
-	
-	
+
+
+
 	</profiles>
 
 
