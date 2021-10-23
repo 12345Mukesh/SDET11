@@ -34,11 +34,11 @@ public class Baseclass
 		System.out.println("Close the Database Connection");
 	}
 	
-	@Parameters("browser")
+	//@Parameters("browser")
     @BeforeClass(groups={"smoke","sanity","regression"})
-    public void launchbrowser(String browsername) throws Throwable
+    public void launchbrowser() throws Throwable
     {
-    	//String browsername=fileutility.readDatafromPropfile("browser");
+    	String browsername=fileutility.readDatafromPropfile("browser");
     	if
     	(browsername.equals("chrome"))
     	{
