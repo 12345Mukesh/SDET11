@@ -20,6 +20,7 @@ import org.testng.annotations.Test;
 
 import com.Vtiger.Generic.ExcelUtility;
 import com.Vtiger.Generic.FileUtility;
+import com.Vtiger.Generic.IAutoConst;
 import com.Vtiger.Generic.JavaUtility;
 
 @Test
@@ -33,7 +34,7 @@ public class Tc_001_CreateObj_org_Test {
 		ExcelUtility Elib= new ExcelUtility();
 		JavaUtility jlib= new JavaUtility();
 		//open the browser
-		String browsername = flib.readDatafromPropfile("browser");
+		String browsername = flib.readDatafromPropfile(IAutoConst.PROP_PATH,"browser");
 		if (browsername.equals("chrome")) {
 			driver = new ChromeDriver();
 			System.out.println("chrome is opened");
@@ -44,18 +45,18 @@ public class Tc_001_CreateObj_org_Test {
 		}
 		
 		//Enter the url
-		driver.get(flib.readDatafromPropfile("url"));
+		driver.get(flib.readDatafromPropfile(IAutoConst.PROP_PATH,"url"));
 
-		String abc = Elib.readDatafromExcel(0, 0, "Sheet1");
-		String abc1 = Elib.readDatafromExcel(0, 1, "Sheet1");
-		String abc2 = Elib.readDatafromExcel(0, 2, "Sheet1");
-		String abc3 = Elib.readDatafromExcel(0, 3, "Sheet1");
+		String abc = Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,0, 0, "Sheet1");
+		String abc1 = Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,0, 1, "Sheet1");
+		String abc2 = Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,0, 2, "Sheet1");
+		String abc3 = Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,0, 3, "Sheet1");
 
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-		driver.findElement(By.name("user_name")).sendKeys(flib.readDatafromPropfile("username"));
-		driver.findElement(By.name("user_password")).sendKeys(flib.readDatafromPropfile("password"));
+		driver.findElement(By.name("user_name")).sendKeys(flib.readDatafromPropfile(IAutoConst.PROP_PATH,"username"));
+		driver.findElement(By.name("user_password")).sendKeys(flib.readDatafromPropfile(IAutoConst.PROP_PATH,"password"));
 		driver.findElement(By.id("submitButton")).click();
 
 		driver.findElement(By.xpath("//a[text()='Organizations']")).click();

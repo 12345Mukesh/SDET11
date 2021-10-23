@@ -19,6 +19,7 @@ import org.testng.annotations.Test;
 
 import com.Vtiger.Generic.ExcelUtility;
 import com.Vtiger.Generic.FileUtility;
+import com.Vtiger.Generic.IAutoConst;
 
 public class Tc_001_CreateContact_org_Test {
 	WebDriver driver;
@@ -29,7 +30,7 @@ public class Tc_001_CreateContact_org_Test {
 		FileUtility flib= new FileUtility();
 		ExcelUtility Elib= new ExcelUtility();
 		//open the browser
-		String browsername = flib.readDatafromPropfile("browser");
+		String browsername = flib.readDatafromPropfile(IAutoConst.PROP_PATH,"browser");
 		if (browsername.equals("chrome")) {
 			driver = new ChromeDriver();
 			System.out.println("chrome is opened");
@@ -40,14 +41,14 @@ public class Tc_001_CreateContact_org_Test {
 		}
 		
 		//Enter the url
-		driver.get(flib.readDatafromPropfile("url"));
+		driver.get(flib.readDatafromPropfile(IAutoConst.PROP_PATH,"url"));
 
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);           
 		driver.manage().window().maximize();                                       
 		
        //Giving username and password
-		driver.findElement(By.name("user_name")).sendKeys(flib.readDatafromPropfile("username"));
-		driver.findElement(By.name("user_password")).sendKeys(flib.readDatafromPropfile("password"));
+		driver.findElement(By.name("user_name")).sendKeys(flib.readDatafromPropfile(IAutoConst.PROP_PATH,"username"));
+		driver.findElement(By.name("user_password")).sendKeys(flib.readDatafromPropfile(IAutoConst.PROP_PATH,"password"));
 		driver.findElement(By.id("submitButton")).click();
 
 		//clicking on contacts
@@ -57,7 +58,7 @@ public class Tc_001_CreateContact_org_Test {
 		driver.findElement(By.xpath("//img[@title='Create Contact...']")).click();
 
 		//Selecting first name in Dropdown
-		String abc1 = Elib.readDatafromExcel(0, 4, "Sheet1");
+		String abc1 = Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,0, 4, "Sheet1");
 		WebElement First = driver.findElement(By.name("salutationtype"));
 		Select Firstdd = new Select(First);
 		Firstdd.selectByValue(abc1);
@@ -67,13 +68,13 @@ public class Tc_001_CreateContact_org_Test {
 		System.out.println(randomnumber);
 
 		//selecting last name and mobile number
-		String abc4 = Elib.readDatafromExcel(1, 1, "Sheet1");
-		String abc5 = Elib.readDatafromExcel(1, 2, "Sheet1");
+		String abc4 = Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,1, 1, "Sheet1");
+		String abc5 = Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,1, 2, "Sheet1");
 		driver.findElement(By.name("lastname")).sendKeys(abc4);
 		driver.findElement(By.id("mobile")).sendKeys(abc5);
 
 		//clicking the dropdown of leadsource
-		String abc2 = Elib.readDatafromExcel(0, 5, "Sheet1");
+		String abc2 = Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,0, 5, "Sheet1");
 		WebElement Leadsource = driver.findElement(By.name("leadsource"));
 		Select Lead = new Select(Leadsource);
 		Lead.selectByValue(abc2);
@@ -89,7 +90,7 @@ public class Tc_001_CreateContact_org_Test {
 		
 		//Entering data into textbox
 		driver.findElement(By.xpath("//input[@class='txtBox']")).sendKeys(abc4);
-		String abc3 = Elib.readDatafromExcel(0, 6, "Sheet1");
+		String abc3 = Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,0, 6, "Sheet1");
 		
 		//selecting value from dropdown
 		WebElement Indropdown = driver.findElement(By.id("bas_searchfield"));

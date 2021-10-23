@@ -11,6 +11,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.Vtiger.Generic.ExcelUtility;
+import com.Vtiger.Generic.IAutoConst;
 import com.Vtiger.Generic.WebDriverUtility;
 
 public class CreateNewContactPage 
@@ -191,9 +192,9 @@ public class CreateNewContactPage
 		String childWindow = window.next();
 
 		driver.switchTo().window(childWindow);
-		driver.findElement(By.id("search_txt")).sendKeys(Elib.readDatafromExcel(0, 0, "Sheet1"));
+		driver.findElement(By.id("search_txt")).sendKeys(Elib.readDatafromExcel(IAutoConst.EXCEL_PATH, 0, 0, "Sheet1"));
 		driver.findElement(By.name("search")).click();
-		driver.findElement(By.xpath("//a[@id='1' and text()='" + Elib.readDatafromExcel(0, 0, "Sheet1") + "']"))
+		driver.findElement(By.xpath("//a[@id='1' and text()='" + Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,0, 0, "Sheet1") + "']"))
 		.click();
 
 		driver.switchTo().window(parentWindow);
@@ -209,7 +210,7 @@ public class CreateNewContactPage
 		String childWindow1 = onewindow.next();
 
 		driver.switchTo().window(childWindow1);
-		String a=Elib.readDatafromExcel(1, 3, "Sheet1");
+		String a=Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,1, 3, "Sheet1");
 		driver.findElement(By.id("search_txt")).sendKeys(a);
 		driver.findElement(By.name("search")).click();
 		//selecting from the list in whole table, select 7th table and all the rows and select 1st column

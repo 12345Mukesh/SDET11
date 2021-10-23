@@ -22,6 +22,7 @@ import org.testng.annotations.Test;
 
 import com.Vtiger.Generic.ExcelUtility;
 import com.Vtiger.Generic.FileUtility;
+import com.Vtiger.Generic.IAutoConst;
 import com.Vtiger.ObjectRepo.ContactInfopage;
 import com.Vtiger.ObjectRepo.CreateNewContactPage;
 import com.Vtiger.ObjectRepo.HomePage;
@@ -38,7 +39,7 @@ public class Tc_005_CreateContact_Data_Test
 		 FileUtility flib= new FileUtility();
 			ExcelUtility Elib= new ExcelUtility();
 			//open the browser
-			String browsername = flib.readDatafromPropfile("browser");
+			String browsername = flib.readDatafromPropfile(IAutoConst.PROP_PATH,"browser");
 			if (browsername.equals("chrome")) {
 				driver = new ChromeDriver();
 				System.out.println("chrome is opened");
@@ -49,7 +50,7 @@ public class Tc_005_CreateContact_Data_Test
 			}
 			
 			//Enter the url
-			driver.get(flib.readDatafromPropfile("url"));
+			driver.get(flib.readDatafromPropfile(IAutoConst.PROP_PATH,"url"));
 
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);           
 			driver.manage().window().maximize();                                       
@@ -67,16 +68,16 @@ public class Tc_005_CreateContact_Data_Test
 		     cip.createcont();  
 		
 		//selecting first name in dropdown
-				String d1 = Elib.readDatafromExcel(5, 0, "Sheet1");
+				String d1 = Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,5, 0, "Sheet1");
 				CreateNewContactPage cnp= new CreateNewContactPage(driver);
 				cnp.firstdropdown(d1);
 		
 				//selecting the first name
-				String d2 = Elib.readDatafromExcel(5, 1, "Sheet1");
+				String d2 = Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,5, 1, "Sheet1");
 				cnp.firstname().sendKeys(d2);
 		
 				//Entering the lastname
-				String d3 = Elib.readDatafromExcel(5, 2, "Sheet1");
+				String d3 = Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,5, 2, "Sheet1");
 				cnp.lastname().sendKeys(d3);
 				
 		//selecting the organisation using window handle
@@ -91,7 +92,7 @@ public class Tc_005_CreateContact_Data_Test
 
 				driver.switchTo().window(childWindow);
 
-				driver.findElement(By.id("search_txt")).sendKeys(Elib.readDatafromExcel(1, 0, "Sheet1"));
+				driver.findElement(By.id("search_txt")).sendKeys(Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,1, 0, "Sheet1"));
 
 				driver.findElement(By.name("search")).click();
 
@@ -103,12 +104,12 @@ public class Tc_005_CreateContact_Data_Test
 				
 				
 				//clicking the dropdown of leadsource
-				String d5 = Elib.readDatafromExcel(5, 3, "Sheet1");
+				String d5 = Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,5, 3, "Sheet1");
 				cnp.seconddropdown(d5);
 				
 				
 				//Entering mobile number
-				String d6 = Elib.readDatafromExcel(5, 4, "Sheet1");
+				String d6 = Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,5, 4, "Sheet1");
 				cnp.mobile().sendKeys(d6);
 				
 				
@@ -124,19 +125,19 @@ public class Tc_005_CreateContact_Data_Test
 				//Entering address 
 				
 				//Street
-				String d7 = Elib.readDatafromExcel(5, 5, "Sheet1");
+				String d7 = Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,5, 5, "Sheet1");
 				cnp.mailingStreet().sendKeys(d7);
 
 				//city
-				String d8 = Elib.readDatafromExcel(5, 6, "Sheet1");
+				String d8 = Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,5, 6, "Sheet1");
 				driver.findElement(By.id("mailingcity")).sendKeys(d8);
 				
 				//State
-				String d9 = Elib.readDatafromExcel(5, 7, "Sheet1");
+				String d9 = Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,5, 7, "Sheet1");
 				driver.findElement(By.id("mailingstate")).sendKeys(d9);
 				
 				//country
-				String d10 = Elib.readDatafromExcel(5, 8, "Sheet1");
+				String d10 = Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,5, 8, "Sheet1");
 				driver.findElement(By.id("mailingcountry")).sendKeys(d10);
 				
 				
@@ -153,7 +154,7 @@ public class Tc_005_CreateContact_Data_Test
 				
 				
 				//selecting value from dropdown
-				String abc3 = Elib.readDatafromExcel(0, 6, "Sheet1");
+				String abc3 = Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,0, 6, "Sheet1");
 				WebElement Indropdown = driver.findElement(By.id("bas_searchfield"));
 				Select Indd = new Select(Indropdown);
 				Indd.selectByVisibleText(abc3);

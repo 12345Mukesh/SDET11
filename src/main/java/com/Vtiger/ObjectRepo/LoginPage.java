@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.Vtiger.Generic.FileUtility;
+import com.Vtiger.Generic.IAutoConst;
 
 public class LoginPage
 {
@@ -43,8 +44,8 @@ public class LoginPage
 	
 	public void logintoApp() throws Throwable  	//Rule 6 Use Business libraries
 	{
-		usernametxtfld.sendKeys(fileutil.readDatafromPropfile("username"));
-		passwordtxtfld.sendKeys(fileutil.readDatafromPropfile("password"));
+		usernametxtfld.sendKeys(fileutil.readDatafromPropfile(IAutoConst.PROP_PATH, "username"));
+		passwordtxtfld.sendKeys(fileutil.readDatafromPropfile(IAutoConst.PROP_PATH,"password"));
 		loginbtn.click();
 	}
 	

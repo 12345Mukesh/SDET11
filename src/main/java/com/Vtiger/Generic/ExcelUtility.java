@@ -10,9 +10,9 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 public class ExcelUtility
 {
 
-	public String readDatafromExcel (int row,int cell,String sheetname) throws Throwable
+	public String readDatafromExcel (String path,int row,int cell,String sheetname) throws Throwable
 	{
-		FileInputStream fis = new FileInputStream("../SDET_11/src/test/resources/data/Input Data.xlsx");
+		FileInputStream fis = new FileInputStream(path);
 
 		Workbook wb=WorkbookFactory.create(fis);
 

@@ -28,13 +28,13 @@ public class FileUtility
 	 * @throws Throwable 
 	 * @throws IOException
 	 */
-	public String readDatafromPropfile(String key) throws Throwable 
+	public String readDatafromPropfile(String proppath,String key) throws Throwable 
 	{
-		FileInputStream fis = new FileInputStream("../SDET_11/src/test/resources/data/config1.properties");
+		FileInputStream fis = new FileInputStream(proppath);
 		Properties prop = new Properties();
 		prop.load(fis);
 
-		return prop.getProperty(key);
+		return prop.getProperty(key,"Incorect Key");
 	}
 
 		

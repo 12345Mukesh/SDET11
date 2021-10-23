@@ -19,6 +19,7 @@ import org.testng.annotations.Test;
 
 import com.Vtiger.Generic.ExcelUtility;
 import com.Vtiger.Generic.FileUtility;
+import com.Vtiger.Generic.IAutoConst;
 import com.Vtiger.Generic.WebDriverUtility;
 import com.Vtiger.ObjectRepo.ContactInfopage;
 import com.Vtiger.ObjectRepo.CreateNewContactPage;
@@ -35,7 +36,7 @@ public class Tc_003_CreateContact_StartDate_Test
     	FileUtility flib= new FileUtility();
 		ExcelUtility Elib= new ExcelUtility();
 		//open the browser
-		String browsername = flib.readDatafromPropfile("browser");
+		String browsername = flib.readDatafromPropfile(IAutoConst.PROP_PATH,"browser");
 		if (browsername.equals("chrome")) {
 			driver = new ChromeDriver();
 			System.out.println("chrome is opened");
@@ -46,7 +47,7 @@ public class Tc_003_CreateContact_StartDate_Test
 		}
 		
 		//Enter the url
-		driver.get(flib.readDatafromPropfile("url"));
+		driver.get(flib.readDatafromPropfile(IAutoConst.PROP_PATH,"url"));
 
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);           
 		driver.manage().window().maximize();                                       
@@ -64,20 +65,20 @@ public class Tc_003_CreateContact_StartDate_Test
 		
 		
 		//selecting first name in dropdown
-				String abc1 = Elib.readDatafromExcel(0, 4, "Sheet1");
+				String abc1 = Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,0, 4, "Sheet1");
 				CreateNewContactPage cnp= new CreateNewContactPage(driver);
 				cnp.firstdropdown(abc1);
 				
 		//Entering the lastname
-				String b1 = Elib.readDatafromExcel(3, 0, "Sheet1");
+				String b1 = Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,3, 0, "Sheet1");
 				cnp.lastname().sendKeys(b1);
 				
 				//clicking the dropdown of leadsource
-				String b2 = Elib.readDatafromExcel(3, 1, "Sheet1");
+				String b2 = Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,3, 1, "Sheet1");
 				cnp.seconddropdown(b2);
 				
 				//Entering data in Home mobile
-				String b3 = Elib.readDatafromExcel(3, 2, "Sheet1");
+				String b3 = Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,3, 2, "Sheet1");
 				cnp.otherphone().sendKeys(b3);
 				
 				//click on Do not call checkbox
@@ -103,7 +104,7 @@ public class Tc_003_CreateContact_StartDate_Test
 		         //sending data in text boz
 		   		 cip.contactname().sendKeys(b1);
 		   	   //selecting the dropdowntype
-		   		String abc3 = Elib.readDatafromExcel(0, 6, "Sheet1");
+		   		String abc3 = Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,0, 6, "Sheet1");
 		   	    cip.selectdropdown(abc3);
 	          //click on submit button
 		   	    cip.submit();

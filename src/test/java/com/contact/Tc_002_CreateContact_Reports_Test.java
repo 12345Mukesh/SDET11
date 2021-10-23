@@ -20,6 +20,7 @@ import org.testng.annotations.Test;
 
 import com.Vtiger.Generic.ExcelUtility;
 import com.Vtiger.Generic.FileUtility;
+import com.Vtiger.Generic.IAutoConst;
 import com.Vtiger.Generic.WebDriverUtility;
 import com.Vtiger.ObjectRepo.ContactInfopage;
 import com.Vtiger.ObjectRepo.CreateNewContactPage;
@@ -35,7 +36,7 @@ public class Tc_002_CreateContact_Reports_Test
 	   FileUtility flib= new FileUtility();
 		ExcelUtility Elib= new ExcelUtility();
 		//open the browser
-		String browsername = flib.readDatafromPropfile("browser");
+		String browsername = flib.readDatafromPropfile(IAutoConst.PROP_PATH,"browser");
 		if (browsername.equals("chrome")) {
 			driver = new ChromeDriver();
 			System.out.println("chrome is opened");
@@ -46,7 +47,7 @@ public class Tc_002_CreateContact_Reports_Test
 		}
 		
 		//Enter the url
-		driver.get(flib.readDatafromPropfile("url"));
+		driver.get(flib.readDatafromPropfile(IAutoConst.PROP_PATH,"url"));
 
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);           
 		driver.manage().window().maximize();                                       
@@ -63,15 +64,15 @@ public class Tc_002_CreateContact_Reports_Test
 	     cip.createcont();  
 	     
 		//selecting first name in dropdown
-				String a1 = Elib.readDatafromExcel(2, 0, "Sheet1");
+				String a1 = Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,2, 0, "Sheet1");
 				CreateNewContactPage cnp= new CreateNewContactPage(driver);
 				cnp.firstdropdown(a1);
 				
-				String a2 = Elib.readDatafromExcel(2, 1, "Sheet1");
+				String a2 = Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,2, 1, "Sheet1");
 				cnp.firstname().sendKeys(a2);
 				
 	   //selecting the last name in the dropdown
-				String a3 = Elib.readDatafromExcel(2, 2, "Sheet1");
+				String a3 = Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,2, 2, "Sheet1");
 				cnp.lastname().sendKeys(a3);
 	   
 		//selecting the organisation using window handle
@@ -79,7 +80,7 @@ public class Tc_002_CreateContact_Reports_Test
 				abc.click();
 				cnp.WindowHandle();
 	            //Entering the office phone
-				String a4 = Elib.readDatafromExcel(2, 3, "Sheet1");
+				String a4 = Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,2, 3, "Sheet1");
 				cnp.officephone().sendKeys(a4);
 	   
 				
@@ -92,7 +93,7 @@ public class Tc_002_CreateContact_Reports_Test
 				
 	   
 	            //selecting the secondary email	
-				String a5 = Elib.readDatafromExcel(2, 4, "Sheet1");
+				String a5 = Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,2, 4, "Sheet1");
 				cnp.secondaryEmail().sendKeys(a5);
 				
 				//Assign to Group click radio button   
@@ -105,7 +106,7 @@ public class Tc_002_CreateContact_Reports_Test
 		         //sending data in text boz
 		   		 cip.contactname().sendKeys(a3);
 		   	   //selecting the dropdowntype
-		   		String abc3 = Elib.readDatafromExcel(0, 6, "Sheet1");
+		   		String abc3 = Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,0, 6, "Sheet1");
 		   	    cip.selectdropdown(abc3);
 	          //click on submit button
 		   	    cip.submit();

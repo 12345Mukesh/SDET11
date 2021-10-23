@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 
 import com.Vtiger.Generic.Baseclass;
 import com.Vtiger.Generic.ExcelUtility;
+import com.Vtiger.Generic.IAutoConst;
 import com.Vtiger.Generic.JavaUtility;
 import com.Vtiger.ObjectRepo.ContactInfopage;
 import com.Vtiger.ObjectRepo.CreateNewContactPage;
@@ -39,16 +40,16 @@ public class Tc_001_CreateContact_Test extends Baseclass
 		cip.createcont();  
 
 		//selecting the dropdown
-		String abc1 = Elib.readDatafromExcel(0, 4, "Sheet1");
+		String abc1 = Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,0, 4, "Sheet1");
 		CreateNewContactPage cnp= new CreateNewContactPage(driver);
 		cnp.firstdropdown(abc1);
 
-		String abc2=Elib.readDatafromExcel(3, 0, "Sheet1");
+		String abc2=Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,3, 0, "Sheet1");
 		cnp.firstname().sendKeys(abc2);
 
 
 		//Entering the last name
-		String abc4 = Elib.readDatafromExcel(1, 1, "Sheet1");
+		String abc4 = Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,1, 1, "Sheet1");
 		cnp.lastname().sendKeys(abc4);
 
 		cnp.getSavecontbtn().click();
@@ -58,7 +59,7 @@ public class Tc_001_CreateContact_Test extends Baseclass
 		//sending data in text boz
 		cip.contactname().sendKeys(abc4);
 
-		String abc3 = Elib.readDatafromExcel(0, 6, "Sheet1");
+		String abc3 = Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,0, 6, "Sheet1");
 		cip.selectdropdown(abc3);
 		
        

@@ -12,6 +12,7 @@ import org.testng.annotations.Test;
 
 import com.Vtiger.Generic.Baseclass;
 import com.Vtiger.Generic.ExcelUtility;
+import com.Vtiger.Generic.IAutoConst;
 import com.Vtiger.Generic.JavaUtility;
 import com.Vtiger.Generic.WebDriverUtility;
 import com.Vtiger.ObjectRepo.ContactInfopage;
@@ -44,16 +45,16 @@ public class VtigerTestCases extends Baseclass {
 		cip.createcont();  
 
 		//selecting the dropdown
-		String abc1 = Elib.readDatafromExcel(0, 4, "Sheet1");
+		String abc1 = Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,0, 4, "Sheet1");
 		CreateNewContactPage cnp= new CreateNewContactPage(driver);
 		cnp.firstdropdown(abc1);
 
-		String abc2=Elib.readDatafromExcel(3, 0, "Sheet1");
+		String abc2=Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,3, 0, "Sheet1");
 		cnp.firstname().sendKeys(abc2);
 
 
 		//Entering the last name
-		String abc4 = Elib.readDatafromExcel(1, 1, "Sheet1");
+		String abc4 = Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,1, 1, "Sheet1");
 		cnp.lastname().sendKeys(abc4);
 
 		cnp.getSavecontbtn().click();
@@ -63,7 +64,7 @@ public class VtigerTestCases extends Baseclass {
 		//sending data in text boz
 		cip.contactname().sendKeys(abc4);
 
-		String abc3 = Elib.readDatafromExcel(0, 6, "Sheet1");
+		String abc3 = Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,0, 6, "Sheet1");
 		cip.selectdropdown(abc3);
 
 		cip.submit();
@@ -154,12 +155,12 @@ public class VtigerTestCases extends Baseclass {
 
 			//clicking on dropdown
 
-			String abc1 = Elib.readDatafromExcel(0, 4, "Sheet1");
+			String abc1 = Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,0, 4, "Sheet1");
 			CreateNewContactPage cnp= new CreateNewContactPage(driver);
 			cnp.firstdropdown(abc1);
 
-			String abc4 = Elib.readDatafromExcel(1, 1, "Sheet1");
-			String abc5 = Elib.readDatafromExcel(1, 2, "Sheet1");
+			String abc4 = Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,1, 1, "Sheet1");
+			String abc5 = Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,1, 2, "Sheet1");
 			cnp.lastname().sendKeys(abc4);
 			cnp.mobile().sendKeys(abc5);
 
@@ -175,18 +176,18 @@ public class VtigerTestCases extends Baseclass {
 
 			driver.switchTo().window(childWindow);
 
-			driver.findElement(By.id("search_txt")).sendKeys(Elib.readDatafromExcel(1, 0, "Sheet1"));
+			driver.findElement(By.id("search_txt")).sendKeys(Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,1, 0, "Sheet1"));
 
 			driver.findElement(By.name("search")).click();
 
 			Thread.sleep(2000);
 
-			driver.findElement(By.xpath("//a[@id='1' and text()='" + Elib.readDatafromExcel(1, 0, "Sheet1") + "']"))
+			driver.findElement(By.xpath("//a[@id='1' and text()='" + Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,1, 0, "Sheet1") + "']"))
 			.click();
 
 			driver.switchTo().window(parentWindow);
 
-			String abc2 = Elib.readDatafromExcel(0, 5, "Sheet1");
+			String abc2 = Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,0, 5, "Sheet1");
 			cnp.seconddropdown(abc2);
 
 			cnp.getSavecontbtn().click();
@@ -196,7 +197,7 @@ public class VtigerTestCases extends Baseclass {
 			//sending data in text boz
 			cip.contactname().sendKeys(abc4);
 
-			String abc3 = Elib.readDatafromExcel(0, 6, "Sheet1");
+			String abc3 = Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,0, 6, "Sheet1");
 			cip.selectdropdown(abc3);
 
 			cip.submit();

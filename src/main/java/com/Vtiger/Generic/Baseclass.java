@@ -15,7 +15,7 @@ import org.testng.annotations.Parameters;
 import com.Vtiger.ObjectRepo.HomePage;
 import com.Vtiger.ObjectRepo.LoginPage;
 
-public class Baseclass 
+public class Baseclass
 {
 	public WebDriver driver;
 	public FileUtility fileutility= new FileUtility();
@@ -38,14 +38,13 @@ public class Baseclass
     @BeforeClass(groups={"smoke","sanity","regression"})
     public void launchbrowser() throws Throwable
     {
-    	String browsername=fileutility.readDatafromPropfile("browser");
+    	String browsername=fileutility.readDatafromPropfile(IAutoConst.PROP_PATH, "browser");
     	if
     	(browsername.equals("chrome"))
     	{
     		driver = new ChromeDriver();
     	}
-    	else if
-    	(browsername.equalsIgnoreCase("Firefox"))
+    	else if(browsername.equalsIgnoreCase("Firefox"))
     	{
     		
     		driver = new FirefoxDriver();
@@ -56,7 +55,7 @@ public class Baseclass
     		driver = new SafariDriver();
     	}
     	//sdriver=driver;
-    	driver.get(fileutility.readDatafromPropfile("url"));
+    	driver.get(fileutility.readDatafromPropfile(IAutoConst.PROP_PATH,"url"));
     	driver.manage().window().maximize();
     }
 	
