@@ -18,8 +18,8 @@ import com.Vtiger.ObjectRepo.HomePage;
 
 public class Tc_001_CreateContact_Test extends Baseclass
 {
-	@Test(retryAnalyzer=com.Vtiger.Generic.RetryListeners.class)
-	public void TC001_CreateContact() throws Throwable
+	@Test()
+	public void TC001_CreateContactTest() throws Throwable
 	{
 
 		JavaUtility jv = new JavaUtility();	
