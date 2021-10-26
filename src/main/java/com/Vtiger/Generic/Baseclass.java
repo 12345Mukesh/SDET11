@@ -1,5 +1,11 @@
 package com.Vtiger.Generic;
 
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.maven.shared.utils.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -20,7 +26,7 @@ public class Baseclass
 	public WebDriver driver;
 	public FileUtility fileutility= new FileUtility();
 	public HomePage hp;
-	public static WebDriver sdriver;
+	public static WebDriver staticdriver;
 	
 	@BeforeSuite(groups={"smoke","sanity","regression"})
 	public void startconnection()
@@ -33,6 +39,7 @@ public class Baseclass
 	{
 		System.out.println("Close the Database Connection");
 	}
+	
 	
 	//@Parameters("browser")
     @BeforeClass(groups={"smoke","sanity","regression"})
@@ -55,7 +62,7 @@ public class Baseclass
     	{
     		driver = new SafariDriver();
     	}
-    	//sdriver=driver;
+    	staticdriver=driver;
     	driver.get(fileutility.readDatafromPropfile(IAutoConst.PROP_PATH,"url"));
     	driver.manage().window().maximize();
     }
@@ -83,6 +90,14 @@ public class Baseclass
 		driver.close();
 	}
 	
-	
+	public static String getscreenshot(String name) throws IOException
+	{
+		File srcfile=((TakesScreenshot) staticdriver).getScreenshotAs(OutputType.FILE);
+		String destfile=System.getProperty("ExtentReports")+"/Screenshots/"+name+".png";
+		File finaldest=new File(destfile);
+		FileUtils.copyFile(srcfile, finaldest);
+		
+		return destfile;
+	}
 	
 }

@@ -12,8 +12,6 @@
      <class name="com.Vtiger.pomscripts.Tc_002_CreateContact_org_Test"/> 
     </classes>
   </test> <!-- Test -->
-  
-  
    <test  name="Test_runner3">
     <classes>
       <class name="com.Vtiger.pomscripts.Tc_001_CreateContact_Test"/>     

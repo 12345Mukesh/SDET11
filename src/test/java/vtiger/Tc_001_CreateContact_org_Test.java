@@ -1,60 +1,35 @@
 package vtiger;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.Properties;
-import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.ss.usermodel.WorkbookFactory;
+import java.util.Random;
+
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import com.Vtiger.Generic.Baseclass;
 import com.Vtiger.Generic.ExcelUtility;
-import com.Vtiger.Generic.FileUtility;
 import com.Vtiger.Generic.IAutoConst;
 
-public class Tc_001_CreateContact_org_Test {
-	WebDriver driver;
+
+@Listeners(com.Vtiger.Generic.ListenerImplementation.class)
+public class Tc_001_CreateContact_org_Test extends Baseclass {
+
 
 	@Test
 	public void CreatecontactTest() throws Throwable {
 
-		FileUtility flib= new FileUtility();
+		
 		ExcelUtility Elib= new ExcelUtility();
-		//open the browser
-		String browsername = flib.readDatafromPropfile(IAutoConst.PROP_PATH,"browser");
-		if (browsername.equals("chrome")) {
-			driver = new ChromeDriver();
-			System.out.println("chrome is opened");
-		} else if (browsername.equals("ff")) {
-
-		} else {
-			System.out.println("please enter proper browser name");
-		}
 		
-		//Enter the url
-		driver.get(flib.readDatafromPropfile(IAutoConst.PROP_PATH,"url"));
-
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);           
-		driver.manage().window().maximize();                                       
-		
-       //Giving username and password
-		driver.findElement(By.name("user_name")).sendKeys(flib.readDatafromPropfile(IAutoConst.PROP_PATH,"username"));
-		driver.findElement(By.name("user_password")).sendKeys(flib.readDatafromPropfile(IAutoConst.PROP_PATH,"password"));
-		driver.findElement(By.id("submitButton")).click();
-
 		//clicking on contacts
 		driver.findElement(By.xpath("//a[text()='Contacts']")).click();
 
-		 //clicking on + button
+		//clicking on + button
 		driver.findElement(By.xpath("//img[@title='Create Contact...']")).click();
 
 		//Selecting first name in Dropdown
@@ -87,11 +62,11 @@ public class Tc_001_CreateContact_org_Test {
 		//-----------verifying process-------------------
 		//clicking on again contacts
 		driver.findElement(By.xpath("//a[text()='Contacts']")).click();
-		
+
 		//Entering data into textbox
 		driver.findElement(By.xpath("//input[@class='txtBox']")).sendKeys(abc4);
 		String abc3 = Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,0, 6, "Sheet1");
-		
+
 		//selecting value from dropdown
 		WebElement Indropdown = driver.findElement(By.id("bas_searchfield"));
 		Select Indd = new Select(Indropdown);
@@ -104,10 +79,10 @@ public class Tc_001_CreateContact_org_Test {
 		WebElement contactname = driver.findElement(By.xpath("//a[@title='Contacts' and text()='" + abc4+ "']"));
 
 		if (contactname.isDisplayed()) {
-			Assert.assertTrue(true);
+			Assert.assertTrue(false);
 		}
 
-		driver.close();
+		
 
 	}
 
