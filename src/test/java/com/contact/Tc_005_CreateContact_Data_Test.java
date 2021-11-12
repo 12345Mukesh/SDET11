@@ -20,6 +20,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.Vtiger.Generic.Baseclass;
 import com.Vtiger.Generic.ExcelUtility;
 import com.Vtiger.Generic.FileUtility;
 import com.Vtiger.Generic.IAutoConst;
@@ -28,9 +29,9 @@ import com.Vtiger.ObjectRepo.CreateNewContactPage;
 import com.Vtiger.ObjectRepo.HomePage;
 import com.Vtiger.ObjectRepo.LoginPage;
 
-public class Tc_005_CreateContact_Data_Test 
+public class Tc_005_CreateContact_Data_Test extends Baseclass 
 {
-   WebDriver driver;
+   
    
 	@Test
 	public void Tc_CreateContactDatawithAddress() throws Throwable
@@ -38,28 +39,8 @@ public class Tc_005_CreateContact_Data_Test
 		
 		 FileUtility flib= new FileUtility();
 			ExcelUtility Elib= new ExcelUtility();
-			//open the browser
-			String browsername = flib.readDatafromPropfile(IAutoConst.PROP_PATH,"browser");
-			if (browsername.equals("chrome")) {
-				driver = new ChromeDriver();
-				System.out.println("chrome is opened");
-			} else if (browsername.equals("ff")) {
-
-			} else {
-				System.out.println("please enter proper browser name");
-			}
 			
-			//Enter the url
-			driver.get(flib.readDatafromPropfile(IAutoConst.PROP_PATH,"url"));
-
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);           
-			driver.manage().window().maximize();                                       
-			
-	      //Giving username and password
-			//Step 2 Login to app
-			LoginPage lp= new LoginPage(driver);
-			lp.logintoApp();
-
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
 			 HomePage hp =new HomePage(driver);
 		     hp.getContactslink().click();
@@ -83,24 +64,8 @@ public class Tc_005_CreateContact_Data_Test
 		//selecting the organisation using window handle
 				WebElement abc = cnp.text();
 				abc.click();
-
-				Set<String> windows = driver.getWindowHandles();
-				Iterator<String> window = windows.iterator();
-
-				String parentWindow = window.next();
-				String childWindow = window.next();
-
-				driver.switchTo().window(childWindow);
-
-				driver.findElement(By.id("search_txt")).sendKeys(Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,1, 0, "Sheet1"));
-
-				driver.findElement(By.name("search")).click();
-
-				//selecting from the list in whole table, select 7th table and all the rows and select 1st column
-				List<WebElement> names=	driver.findElements(By.xpath("(//table)[7]//tr[*]//td//a"));
-				//In that what the element id is there give in the get
-				names.get(4).click();
-					driver.switchTo().window(parentWindow);   
+                cnp.windowhandle2();
+				
 				
 				
 				//clicking the dropdown of leadsource
@@ -142,26 +107,25 @@ public class Tc_005_CreateContact_Data_Test
 				
 				
 				//clicking on save button
-				driver.findElement(By.xpath("(//input[@title='Save [Alt+S]'])[2]")).click();
+				cnp.getSavecontbtn().click();
+				
 	
 				
-//				//clicking on again contacts
-				driver.findElement(By.xpath("//a[text()='Contacts']")).click();
-				
-				//Entering data into textbox
-				driver.findElement(By.xpath("//input[@class='txtBox']")).sendKeys(d3);
+//				//Again clicking on Contacts
+		   		 hp.getContactslink().click();		
+		   	//sending data in text boz
+		   		 cip.contactname().sendKeys(d3);
 			
 				
 				
 				//selecting value from dropdown
 				String abc3 = Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,0, 6, "Sheet1");
-				WebElement Indropdown = driver.findElement(By.id("bas_searchfield"));
-				Select Indd = new Select(Indropdown);
-				Indd.selectByVisibleText(abc3);
+				cip.selectdropdown(abc3);
+				
+		          //click on submit button
+			   	    cip.submit();
 
-				//click on submit button
-				driver.findElement(By.xpath("//input[@name='submit']")).click();
-
+				
 			WebElement contactname = driver.findElement(By.xpath("//a[@title='Contacts' and text()='" + d3+ "']"));
 
 			if (contactname.isDisplayed()) 
@@ -169,7 +133,7 @@ public class Tc_005_CreateContact_Data_Test
 				Assert.assertTrue(true);
 			}
 		       
-			driver.close();
+			
 	}	
 	
 	

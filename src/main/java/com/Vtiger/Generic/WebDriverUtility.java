@@ -156,21 +156,21 @@ public class WebDriverUtility
 	 * @param title
 	 */
 
-//	public void switchTowindow(WebDriver driver, String title) 
-//	{   String mainwindow = driver.getWindowHandle();
-//		Set<String> windowId = driver.getWindowHandles();
-//		 for(String currentwindow:windowId)
-//		  {
-//			  String childtitle=driver.switchTo().window(currentwindow).getTitle();
-//			  if(childtitle.equalsIgnoreCase(title))
-//			  {
-//				  break;
-//				  
-//			  }
-//		  }
-//		    driver.switchTo().window(mainwindow);
-//		
-//	}
+	public void switchTowindow(WebDriver driver, String title) 
+	{   String mainwindow = driver.getWindowHandle();
+		Set<String> windowId = driver.getWindowHandles();
+		 for(String currentwindow:windowId)
+		  {
+			  String childtitle=driver.switchTo().window(currentwindow).getTitle();
+			  if(childtitle.equalsIgnoreCase(title))
+			  {
+				  break;
+				  
+			  }
+		  }
+		    driver.switchTo().window(mainwindow);
+		
+	}
 
 	
 	/**
@@ -179,23 +179,23 @@ public class WebDriverUtility
 	 * @param abc
 	 */
 
-	public void switchTowindow(WebDriver driver,  String title) 
-	{
-		Set<String> windowId = driver.getWindowHandles();
-		Iterator<String> iterator=windowId.iterator();
-
-		while(iterator.hasNext()) //it will check whether 2 or more windows are  opened then it will give boolean value
-		{
-			String currentwindow=iterator.next();
-			String currenttitle=driver.switchTo().window(currentwindow).getTitle();
-			if(currenttitle.contains(title)) 
-			{
-				
-				break;
-			}
-		  driver.close();
-		}
-	}
+//	public void switchTowindow(WebDriver driver,  String title) 
+//	{
+//		Set<String> windowId = driver.getWindowHandles();
+//		Iterator<String> iterator=windowId.iterator();
+//
+//		while(iterator.hasNext()) //it will check whether 2 or more windows are  opened then it will give boolean value
+//		{
+//			String currentwindow=iterator.next();
+//			String currenttitle=driver.switchTo().window(currentwindow).getTitle();
+//			if(currenttitle.contains(title)) 
+//			{
+//				
+//				break;
+//			}
+//		  driver.close();
+//		}
+//	}
 	
 	public void switchTowindow(WebDriver driver) 
 	{

@@ -29,7 +29,7 @@
 				<configuration>
 					<suiteXmlFiles>
 						<!-- TestNG suite XML files -->
-						<suiteXmlFile>Sampletestng.xml</suiteXmlFile>
+						<suiteXmlFile>crossbrowser2.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>

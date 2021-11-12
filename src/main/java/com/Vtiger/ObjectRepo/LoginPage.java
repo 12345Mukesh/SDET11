@@ -49,12 +49,12 @@ public class LoginPage
 		loginbtn.click();
 	}
 	
-	public void logintoApp(String username,String password) 
-	{
-		usernametxtfld.sendKeys(username);
-		passwordtxtfld.sendKeys(password);
-		loginbtn.click();
-	}
+//	public void logintoApp(String username,String password) 
+//	{
+//		usernametxtfld.sendKeys(username);
+//		passwordtxtfld.sendKeys(password);
+//		loginbtn.click();
+//	}
 	
 	
 	

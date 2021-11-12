@@ -18,7 +18,8 @@ public class CreateNewContactPage
 {
 
 	WebDriver driver;
-
+ 
+	ExcelUtility Elib= new ExcelUtility();
 
 	public CreateNewContactPage(WebDriver driver) 
 	{
@@ -219,6 +220,30 @@ public class CreateNewContactPage
 	    names.get(2).click();
 		driver.switchTo().window(parentWindow1);
    }
+   
+   
+   public void windowhandle2() throws Throwable
+   {
+	   Set<String> windows = driver.getWindowHandles();
+		Iterator<String> window = windows.iterator();
+
+		String parentWindow = window.next();
+		String childWindow = window.next();
+
+		driver.switchTo().window(childWindow);
+
+		driver.findElement(By.id("search_txt")).sendKeys(Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,1, 0, "Sheet1"));
+
+		driver.findElement(By.name("search")).click();
+
+		//selecting from the list in whole table, select 7th table and all the rows and select 1st column
+		List<WebElement> names=	driver.findElements(By.xpath("(//table)[7]//tr[*]//td//a"));
+		//In that what the element id is there give in the get
+		names.get(4).click();
+			driver.switchTo().window(parentWindow);   
+   }
+   
+   
    
    public void seconddropdown(String text1)
 	{

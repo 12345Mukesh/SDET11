@@ -20,14 +20,14 @@ public class ExecuteQuery
     	  Driver driverref=new Driver();
     	  DriverManager.registerDriver(driverref);
     	  //Step 2:establish connection with database
-    	  Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/customers", "root", "root");
+    	  Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/customer", "root", "root");
     	        //Step 3:issue create statement
     	  Statement stat=con.createStatement();
     	  //Step 4:Execute the query
     	  ResultSet result=stat.executeQuery("select * from customer;");
     	  while(result.next())
     	  {
-    	   System.out.println(result.getString(2));
+    	   System.out.println(result.getString(1)+" " + result.getString(2)+" "  + result.getString(3)+" " + result.getString(4));
     	  }
     	  
 

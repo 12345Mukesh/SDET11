@@ -3,17 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="vtiger.Tc_001_CreateContact_org_Test">
+      <class name="JDBCUtils.ExecuteQuery2">
         <methods>
-          <include name="logindetails"/>
-          <include name="startconnection"/>
-          <include name="launchbrowser"/>
-          <include name="CreatecontactTest"/>
-          <include name="closeconnection"/>
-          <include name="logout"/>
-          <include name="closebrowser"/>
+          <include name="executequery"/>
         </methods>
-      </class> <!-- vtiger.Tc_001_CreateContact_org_Test -->
+      </class> <!-- JDBCUtils.ExecuteQuery2 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

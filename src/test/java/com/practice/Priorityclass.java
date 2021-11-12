@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 public class Priorityclass 
 {
-    @Test(priority=-8)
+    @Test(priority=8)
 	public void priority1()
 	{
 		System.out.println("Method 1");

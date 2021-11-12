@@ -7,7 +7,9 @@ import java.sql.Statement;
 
 import org.testng.annotations.Test;
 
-import com.mysql.cj.jdbc.Driver;
+import com.mysql.jdbc.Driver;
+
+
 
 
 public class ExecuteQuery1 
@@ -27,7 +29,7 @@ public class ExecuteQuery1
 	         //Step 3:issue create statement
 	  Statement stat=con.createStatement();
 	    //Step 4:Execute the query
-	    int result=stat.executeUpdate("insert into customer values('Keerthana','abcd','Bangalore');");
+	    int result=stat.executeUpdate("insert into customer values(2,'Mukesh','abcd','Tirupati');");
 	    if(result==1)
 	    {
 	     System.out.println("customer is created successfully");

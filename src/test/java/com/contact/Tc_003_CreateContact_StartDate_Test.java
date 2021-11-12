@@ -17,6 +17,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.Vtiger.Generic.Baseclass;
 import com.Vtiger.Generic.ExcelUtility;
 import com.Vtiger.Generic.FileUtility;
 import com.Vtiger.Generic.IAutoConst;
@@ -26,37 +27,15 @@ import com.Vtiger.ObjectRepo.CreateNewContactPage;
 import com.Vtiger.ObjectRepo.HomePage;
 import com.Vtiger.ObjectRepo.LoginPage;
 
-public class Tc_003_CreateContact_StartDate_Test
+public class Tc_003_CreateContact_StartDate_Test extends Baseclass
 {
-    WebDriver driver;
+    
     @Test
 	public void Tc003_CreateContactwithStartDate() throws Throwable
 	{
-		
-    	FileUtility flib= new FileUtility();
-		ExcelUtility Elib= new ExcelUtility();
-		//open the browser
-		String browsername = flib.readDatafromPropfile(IAutoConst.PROP_PATH,"browser");
-		if (browsername.equals("chrome")) {
-			driver = new ChromeDriver();
-			System.out.println("chrome is opened");
-		} else if (browsername.equals("ff")) {
-
-		} else {
-			System.out.println("please enter proper browser name");
-		}
-		
-		//Enter the url
-		driver.get(flib.readDatafromPropfile(IAutoConst.PROP_PATH,"url"));
-
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);           
-		driver.manage().window().maximize();                                       
-		
-      //Giving username and password
-		//Step 2 Login to app
-		LoginPage lp= new LoginPage(driver);
-		lp.logintoApp();
-		
+		 ExcelUtility Elib= new ExcelUtility();
+		 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    	
 		 HomePage hp =new HomePage(driver);
 	     hp.getContactslink().click();
 			
@@ -115,11 +94,7 @@ public class Tc_003_CreateContact_StartDate_Test
 		   			Assert.assertTrue(true);
 		   		}
 
-		   		//logout from app
-		   				hp.logoutfromApp();
-
-		       
-		   				driver.close();
+		   
 		
 	
 				

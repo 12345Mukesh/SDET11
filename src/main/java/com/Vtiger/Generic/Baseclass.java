@@ -21,7 +21,7 @@ import org.testng.annotations.Parameters;
 import com.Vtiger.ObjectRepo.HomePage;
 import com.Vtiger.ObjectRepo.LoginPage;
 
-public class Baseclass
+public class Baseclass implements IAutoConst
 {
 	public WebDriver driver;
 	public FileUtility fileutility= new FileUtility();
@@ -45,7 +45,7 @@ public class Baseclass
     @BeforeClass(groups={"smoke","sanity","regression"})
     public void launchbrowser() throws Throwable
     {
-    	String browsername=fileutility.readDatafromPropfile(IAutoConst.PROP_PATH, "browser");
+    	String browsername=fileutility.readDatafromPropfile(PROP_PATH, "browser");
     	if
     	(browsername.equals("chrome"))
     	{
@@ -63,7 +63,7 @@ public class Baseclass
     		driver = new SafariDriver();
     	}
     	staticdriver=driver;
-    	driver.get(fileutility.readDatafromPropfile(IAutoConst.PROP_PATH,"url"));
+    	driver.get(fileutility.readDatafromPropfile(PROP_PATH,"url"));
     	driver.manage().window().maximize();
     }
 	
@@ -93,7 +93,7 @@ public class Baseclass
 	public static String getscreenshot(String name) throws IOException
 	{
 		File srcfile=((TakesScreenshot) staticdriver).getScreenshotAs(OutputType.FILE);
-		String destfile=System.getProperty("ExtentReports")+"/Screenshots/"+name+".png";
+		String destfile=System.getProperty("user.dir")+"/Screen/"+name+".png";
 		File finaldest=new File(destfile);
 		FileUtils.copyFile(srcfile, finaldest);
 		

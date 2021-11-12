@@ -1,12 +1,7 @@
 package com.Vtiger.Generic;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.Date;
 
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -36,7 +31,7 @@ public class ListenerImplementation implements ITestListener
 		try {
 			String path = Baseclass.getscreenshot(result.getMethod().getMethodName());
 			
-			test.addScreenCaptureFromPath("../SDET_11/null/Screenshots");
+			test.addScreenCaptureFromPath(path);
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -55,9 +50,9 @@ public class ListenerImplementation implements ITestListener
 	public void onStart(ITestContext context) 
 	{
 		JavaUtility jv= new JavaUtility();
-		String date=jv.getCurrentDate();
+	//	String date=jv.getCurrentDate();
 		
-		   reporter= new ExtentHtmlReporter("../SDET_11/src/test/resources/vtiger"+date+".html");
+		   reporter= new ExtentHtmlReporter("../SDET_11/src/test/resources/vtiger13.html");
 		   reporter.config().setDocumentTitle("SDET-1");
 		   reporter.config().setReportName("VTiger");
 		   reporter.config().setTheme(Theme.DARK);
