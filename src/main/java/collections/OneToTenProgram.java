@@ -34,7 +34,7 @@ public class OneToTenProgram
 			{
 				if(name[i]==vowels[j]) 
 				{
-					s=s+name[i];
+					s=s+vowels[j];
 				}
 
 			}
@@ -105,18 +105,17 @@ public class OneToTenProgram
 	
 	*/	
 //----------------------------5.Using Maps-----------------------------------
-	/*	
 		
+	/*	
 		String s1="TESTYANTRA";
 		char c[] =s1.toCharArray();
-		HashMap<Character, Integer> hm= new HashMap<Character, Integer>();
-//		LinkedHashMap<Character, Integer>= new LinkedHashMap<Character, Integer>();
-//		TreeMap<Character, Integer> hm= new TreeMap<Character, Integer>();
+		//HashMap<Character, Integer> hm= new HashMap<Character, Integer>();
+    // LinkedHashMap<Character, Integer>= new LinkedHashMap<Character, Integer>();
+		TreeMap<Character, Integer> hm= new TreeMap<Character, Integer>();
 		for (int i = 0; i < c.length; i++) 
 		{
 			if(hm.containsKey(c[i]))
 			{
-				//hm.put(key, value)
 				hm.put(c[i], hm.get(c[i])+1);
 			}
 			else
@@ -124,7 +123,10 @@ public class OneToTenProgram
 		}
 		System.out.println(hm);
 		System.out.println(hm.keySet());
-   */
+   
+		//It will not print at the starting only it will enter into the containskey(c[i]) loop only
+		//if it has multiple values then at a time it will print
+		
 	/*	
 		//output:
 		Hash map                                                     LinkedHashMap
@@ -184,17 +186,17 @@ public class OneToTenProgram
 //------------------------char At-------------
 		
 		
-		String s1="oppo";
-		String s2="";
-		for (int k = s1.length()-1; k >=0 ; k--) 
-		{
-			System.out.print(s1.charAt(k)+s2);
-		}
-		if(	s1.equals(s2));
-		{
-			System.out.println(' ' );
-		}
-		
+//		String s1="oppo";
+//		String s2="";
+//		for (int k = s1.length()-1; k >=0 ; k--) 
+//		{
+//			System.out.print(s1.charAt(k)+s2);
+//		}
+//		if(	s1.equals(s2));
+//		{
+//			System.out.println(' ' );
+//		}
+//		
 		
 		
 		

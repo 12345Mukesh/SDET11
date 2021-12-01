@@ -1,11 +1,13 @@
 package InterviewPrograms;
 
+import java.util.Scanner;
+
 public class RemoveDuplicates 
 {
 
 	public static void main(String[] args) 
 	{
-		String s1="Testingenesis";
+	//	String s1="Testingenesis";
 //		String dup="";
 //		for(int i=0;i<s.length();i++)
 //		{
@@ -19,10 +21,11 @@ public class RemoveDuplicates
  //	<---------------------------------------------------------------------------------------------------->	
 	//For checking string values	
 		//to check ascii values
-	  s1=s1.toLowerCase();
-	   char[] ch= s1.toCharArray();
-	   
-	   
+	
+		Scanner s= new Scanner(System.in);
+		System.out.println("Enter string value");
+		String s1=s.nextLine();
+		char []ch=s1.toCharArray(); 
 	   for(int i=0;i<ch.length;i++)
 	   {
 		   int count=1;

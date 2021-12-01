@@ -143,7 +143,7 @@ public class WebDriverUtility
 	public void rightClick(WebDriver driver,WebElement element) 
 	{
 		Actions action = new Actions(driver);
-		action.contextClick(element);
+		action.contextClick(element).build().perform();
 	}
 	public void acceptAlert(WebDriver driver) {
 		driver.switchTo().alert().accept();

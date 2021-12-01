@@ -57,8 +57,7 @@ public class Baseclass implements IAutoConst
     		//System.setProperty(IAutoConst.GECKO_KEY, IAutoConst.GECKO_VALUE);
     		driver = new FirefoxDriver();
     	}
-    	else if
-    	(browsername.equalsIgnoreCase("safari"))
+    	else if(browsername.equalsIgnoreCase("safari"))
     	{
     		driver = new SafariDriver();
     	}

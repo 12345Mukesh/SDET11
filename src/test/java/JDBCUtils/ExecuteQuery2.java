@@ -24,7 +24,7 @@ public class ExecuteQuery2
 			
 			Statement stat=con.createStatement();
 			
-			int result=stat.executeUpdate("delete from customer where id=3;");
+			int result=stat.executeUpdate("delete from customer where id=6;");
 			
 			if(result==1)
 			{

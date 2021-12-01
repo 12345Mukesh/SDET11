@@ -370,8 +370,8 @@ Tree MAp---Natural sorting takes place
 	
 //--------------------11.Removing spaces----------------------------------	
 	
-	/*
-		String s= "i am student of QSP";
+
+		String s= "i am          student          of QSP";
 		String str[]=s.split(" ");
 		for (int i = 0; i < str.length; i++) 
 		{
@@ -381,10 +381,10 @@ Tree MAp---Natural sorting takes place
 	//output
 	//  iamstudentofQSP
 	
-	*/
 	
+
 //---------------------	12.Entering the character and counting in the string
- /*		
+ 	/*	
 		int count=0;
 		String s= "hello everyone";
 		char c[]=s.toCharArray();
@@ -426,26 +426,26 @@ Tree MAp---Natural sorting takes place
 //------------------------14.	
 	
 	
-		String s1= "Character";
-		int count=0;
-		char c[]=s1.toCharArray();
-		char c1[]=c;
-		//	System.out.println(c[2]);
-		for (int i = 0; i < c.length-1; i++) 
-		{
-			//int count = 0;
-			for (int j = 0; j < c.length-1; j++) 
-			{
-				if (c[i]==c1[j]);
-				count++;
-				System.out.print(c[i]);
-
-			}
-		}
-		if(count>1) 
-		{
-						
-		}
+//		String s1= "Character";
+//		int count=0;
+//		char c[]=s1.toCharArray();
+//		char c1[]=c;
+//		//	System.out.println(c[2]);
+//		for (int i = 0; i < c.length-1; i++) 
+//		{
+//			//int count = 0;
+//			for (int j = 0; j < c.length-1; j++) 
+//			{
+//				if (c[i]==c1[j]);
+//				count++;
+//				System.out.print(c[i]);
+//
+//			}
+//		}
+//		if(count>1) 
+//		{
+//						
+//		}
 		
 
 	

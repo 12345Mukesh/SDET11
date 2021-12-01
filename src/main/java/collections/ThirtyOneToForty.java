@@ -11,6 +11,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.Map.Entry;
+import java.util.Scanner;
 
 public class ThirtyOneToForty {
 
@@ -677,9 +678,56 @@ public class ThirtyOneToForty {
     
      */
         
+//		int n,i;
+//		int a,lastdig;
+//		Scanner sc = new Scanner(System.in);
+//		System.out.print("\nEnter the number : " );
+//		n = sc.nextInt();
+//		int total = 0;
+//		int backup = n;
+//		while(n != 0)
+//		{
+//		i = 1;
+//		a = 1;
+//		lastdig = n % 10;
+//		while(i <= lastdig)
+//		{
+//		a = a * i;
+//		i++;
+//		}
+//		total = total + a;
+//		n = n / 10;
+//		}
+//		if(total == backup)
+//		System.out.println(backup + " is a strong number\n");
+//		else
+//		System.out.println(backup + " is not a strong number\n");
+//		System.out.println();
 	
-	
-	
+		Scanner cs=new Scanner(System.in);
+		  int firstnumber, endnumber, i;
+		        System.out.println("Enter the First number:");
+		        firstnumber=cs.nextInt();
+		        System.out.println("Enter the Last number:");
+		        endnumber=cs.nextInt();
+		    System.out.println("Strong numbers between "+firstnumber+" and "+endnumber+" are:");
+		    for(i=firstnumber;i<=endnumber;i++)
+		      {
+		       int num2=i;
+		       int num1=i;
+		       int sum=0;
+		       int fact=1;
+		      while(num1!=0)
+		      {   fact=1;
+		          int rem=num1%10;
+		          num1=num1/10;
+		          for(int j=1;j<=rem;j++)
+		           fact=fact*j;
+		          sum=sum+fact;
+		      }
+		      if(sum==num2)
+		       System.out.println(i+" ");
+		      }
 	
 	
 	

@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-11-10T16:25:16 IST" name="Default suite" finished-at="2021-11-10T16:25:17 IST" duration-ms="441">
+  <suite started-at="2021-11-24T06:56:29 IST" name="Default suite" finished-at="2021-11-24T06:57:12 IST" duration-ms="42756">
     <groups>
     </groups>
-    <test started-at="2021-11-10T16:25:16 IST" name="Default test" finished-at="2021-11-10T16:25:17 IST" duration-ms="441">
-      <class name="JDBCUtils.ExecuteQuery">
-        <test-method signature="executeQuery()[pri:0, instance:JDBCUtils.ExecuteQuery@3c7f66c4]" started-at="2021-11-10T16:25:16 IST" name="executeQuery" finished-at="2021-11-10T16:25:17 IST" duration-ms="380" status="PASS">
+    <test started-at="2021-11-24T06:56:29 IST" name="Default test" finished-at="2021-11-24T06:57:12 IST" duration-ms="42756">
+      <class name="com.practice.Tc_001_ICCMENSTEAM_Test">
+        <test-method signature="Tc001_ICCTEAMRANKINGS()[pri:0, instance:com.practice.Tc_001_ICCMENSTEAM_Test@3e11f9e9]" started-at="2021-11-24T06:56:29 IST" name="Tc001_ICCTEAMRANKINGS" finished-at="2021-11-24T06:57:12 IST" duration-ms="42698" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- executeQuery -->
-      </class> <!-- JDBCUtils.ExecuteQuery -->
+        </test-method> <!-- Tc001_ICCTEAMRANKINGS -->
+      </class> <!-- com.practice.Tc_001_ICCMENSTEAM_Test -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

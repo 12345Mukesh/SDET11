@@ -34,12 +34,12 @@ public class Tc_001_CreateContact_Test extends Baseclass
 		ExcelUtility Elib= new ExcelUtility();	
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-		hp=new HomePage(driver);
+		HomePage hp=new HomePage(driver);
 		hp.getContactslink().click();
 
 		ContactInfopage cip= new ContactInfopage(driver);
 		cip.createcont();  
-
+  
 		//selecting the dropdown
 		String abc1 = Elib.readDatafromExcel(IAutoConst.EXCEL_PATH,0, 4, "Sheet1");
 		CreateNewContactPage cnp= new CreateNewContactPage(driver);

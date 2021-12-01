@@ -23,7 +23,7 @@ public class UpdateQuery
 		  con=DriverManager.getConnection("jdbc:mysql://localhost:3306/customer","root","root");
 		  
 		  Statement st= con.createStatement();
-		  int result=st.executeUpdate("update customer set last_name='Mukesh',address='TPT' where first_name='chandana'");
+		  int result=st.executeUpdate("update customer set last_name='Mukesh',address='TPT' where id=5");
 		  if(result==1)
 		  {
 			  System.out.println("successfully updated");

@@ -3,8 +3,13 @@ package com.practice;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.Collections;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
+import java.util.Map.Entry;
 
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
@@ -47,17 +52,23 @@ public class Tc_001_ICCMENSTEAM_Test
 		
 		//Entering the url
 		driver.get(prop.getProperty("url1"));
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
+		driver.findElement(By.xpath("//a[text( )='ODI']")).click();
+		WebElement al=driver.findElement(By.xpath("(//table)[1]//tr[5]"));
+		System.out.println(al.getText());
+		List<WebElement> list=driver.findElements(By.xpath("(//table)[1]//tr[1]"));
+		System.out.println();
+//		for(int i=0;i<=list.size()-1;i++)
+//			{
+//				System.out.println(list.get(i).getText());
+//			}
+//	
+//		System.out.println(list.get(10).getText());
+//		
 		
-		List<WebElement> list=driver.findElements(By.xpath("(//table)[1]//tr[*]"));
 		
-		for(int i=0;i<=list.size()-1;i++)
-		{
-			System.out.println(list.get(i).getText());
-		}
-		
-		
-		
+	
 		
 		
 	}
