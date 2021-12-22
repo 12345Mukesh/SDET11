@@ -29,10 +29,7 @@ public class ExecuteQuery
     	  {
     	   System.out.println(result.getString(1)+" " + result.getString(2)+" "  + result.getString(3)+" " + result.getString(4));
     	  }
-    	  
-
-    	
-    	
+    	 	
     }
 	
 	
